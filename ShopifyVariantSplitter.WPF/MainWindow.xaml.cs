@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using Microsoft.Win32;
-using ShopifyVariantSplitter.Models;
-using ShopifyVariantSplitter.Services;
+using ShopifyVariantSplitter.Core.Models;
+using ShopifyVariantSplitter.Core.Services;
 
 namespace ShopifyVariantSplitter
 {

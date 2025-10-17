@@ -3,9 +3,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using CsvHelper;
-using ShopifyVariantSplitter.Models;
+using ShopifyVariantSplitter.Core.Models;
 
-namespace ShopifyVariantSplitter.Services
+namespace ShopifyVariantSplitter.Core.Services
 {
     public class CsvService
     {

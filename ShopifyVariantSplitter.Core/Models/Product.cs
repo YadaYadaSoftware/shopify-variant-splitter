@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ShopifyVariantSplitter.Models
+namespace ShopifyVariantSplitter.Core.Models
 {
     public class Product
     {

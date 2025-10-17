@@ -9,8 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="30.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <ProjectReference Include="..\ShopifyVariantSplitter.Core\ShopifyVariantSplitter.Core.csproj" />
   </ItemGroup>
 
 </Project>
