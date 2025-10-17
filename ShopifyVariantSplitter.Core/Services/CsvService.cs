@@ -74,7 +74,7 @@ namespace ShopifyVariantSplitter.Core.Services
                         ImageSrc = csv.GetField("Image Src") ?? "",
                         ImagePosition = int.TryParse(csv.GetField("Image Position") ?? "0", out var pos) ? pos : 0,
                         ImageAltText = csv.GetField("Image Alt Text") ?? "",
-                        Weight = csv.GetField("Variant Weight Unit") ?? "",
+                        Weight = "",
                         WeightUnit = csv.GetField("Variant Weight Unit") ?? "",
                         TaxCode = csv.GetField("Variant Tax Code") ?? "",
                         Cost = decimal.TryParse(csv.GetField("Cost per item") ?? "0", out var cost) ? cost : 0
