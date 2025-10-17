@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET WPF Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/ShopifyVariantSplitter.WPF/bin/Debug/net8.0-windows/ShopifyVariantSplitter.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "preLaunchTask": "build-wpf"
+        },
+        {
+            "name": ".NET WPF Release",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/ShopifyVariantSplitter.WPF/bin/Release/net8.0-windows/ShopifyVariantSplitter.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "preLaunchTask": "build-wpf-release"
+        }
+    ]
+}
