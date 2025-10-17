@@ -46,7 +46,25 @@ namespace ShopifyVariantSplitter.Core.Services
                         Option2Value = csv.GetField("Option2 Value") ?? "",
                         Option3Name = csv.GetField("Option3 Name") ?? "",
                         Option3Value = csv.GetField("Option3 Value") ?? "",
-                        Status = csv.GetField("Status") ?? ""
+                        Status = csv.GetField("Status") ?? "",
+                        GiftCard = csv.GetField("Gift Card")?.ToLower() == "true",
+                        SeoTitle = csv.GetField("SEO Title") ?? "",
+                        SeoDescription = csv.GetField("SEO Description") ?? "",
+                        GoogleShoppingCategory = csv.GetField("Google Shopping / Google Product Category") ?? "",
+                        GoogleShoppingGender = csv.GetField("Google Shopping / Gender") ?? "",
+                        GoogleShoppingAgeGroup = csv.GetField("Google Shopping / Age Group") ?? "",
+                        GoogleShoppingMpn = csv.GetField("Google Shopping / MPN") ?? "",
+                        GoogleShoppingCondition = csv.GetField("Google Shopping / Condition") ?? "",
+                        GoogleShoppingCustomProduct = csv.GetField("Google Shopping / Custom Product") ?? "",
+                        GoogleShoppingCustomLabel0 = csv.GetField("Google Shopping / Custom Label 0") ?? "",
+                        GoogleShoppingCustomLabel1 = csv.GetField("Google Shopping / Custom Label 1") ?? "",
+                        GoogleShoppingCustomLabel2 = csv.GetField("Google Shopping / Custom Label 2") ?? "",
+                        GoogleShoppingCustomLabel3 = csv.GetField("Google Shopping / Custom Label 3") ?? "",
+                        GoogleShoppingCustomLabel4 = csv.GetField("Google Shopping / Custom Label 4") ?? "",
+                        GoogleCustomProduct = csv.GetField("Google: Custom Product (product.metafields.mm-google-shopping.custom_product)") ?? "",
+                        ConstitutiveIngredients = csv.GetField("Constitutive ingredients (product.metafields.shopify.constitutive-ingredients)") ?? "",
+                        HoldLevel = csv.GetField("Hold level (product.metafields.shopify.hold-level)") ?? "",
+                        TargetGender = csv.GetField("Target gender (product.metafields.shopify.target-gender)") ?? ""
                     };
                 }
 
@@ -77,7 +95,13 @@ namespace ShopifyVariantSplitter.Core.Services
                         Weight = "",
                         WeightUnit = csv.GetField("Variant Weight Unit") ?? "",
                         TaxCode = csv.GetField("Variant Tax Code") ?? "",
-                        Cost = decimal.TryParse(csv.GetField("Cost per item") ?? "0", out var cost) ? cost : 0
+                        Cost = decimal.TryParse(csv.GetField("Cost per item") ?? "0", out var cost) ? cost : 0,
+                        IncludedUnitedStates = false, // Default to false since field may not exist in current CSV
+                        PriceUnitedStates = 0, // Default to 0 since field may not exist in current CSV
+                        CompareAtPriceUnitedStates = 0, // Default to 0 since field may not exist in current CSV
+                        IncludedInternational = false, // Default to false since field may not exist in current CSV
+                        PriceInternational = 0, // Default to 0 since field may not exist in current CSV
+                        CompareAtPriceInternational = 0 // Default to 0 since field may not exist in current CSV
                     };
 
                     product.Variants.Add(variant);
@@ -147,28 +171,34 @@ namespace ShopifyVariantSplitter.Core.Services
                         variant.ImageSrc,
                         variant.ImagePosition,
                         variant.ImageAltText,
-                        GiftCard = false,
-                        SEO_Title = "",
-                        SEO_Description = "",
-                        GoogleShoppingCategory = "",
-                        GoogleShoppingGender = "",
-                        GoogleShoppingAgeGroup = "",
-                        GoogleShoppingMPN = "",
-                        GoogleShoppingCondition = "",
-                        GoogleShoppingCustomProduct = "",
-                        GoogleShoppingCustomLabel0 = "",
-                        GoogleShoppingCustomLabel1 = "",
-                        GoogleShoppingCustomLabel2 = "",
-                        GoogleShoppingCustomLabel3 = "",
-                        GoogleShoppingCustomLabel4 = "",
-                        GoogleCustomProduct = "",
-                        ConstitutiveIngredients = "",
-                        HoldLevel = "",
-                        TargetGender = "",
+                        GiftCard = product.GiftCard,
+                        SEO_Title = product.SeoTitle ?? "",
+                        SEO_Description = product.SeoDescription ?? "",
+                        GoogleShoppingCategory = product.GoogleShoppingCategory ?? "",
+                        GoogleShoppingGender = product.GoogleShoppingGender ?? "",
+                        GoogleShoppingAgeGroup = product.GoogleShoppingAgeGroup ?? "",
+                        GoogleShoppingMPN = product.GoogleShoppingMpn ?? "",
+                        GoogleShoppingCondition = product.GoogleShoppingCondition ?? "",
+                        GoogleShoppingCustomProduct = product.GoogleShoppingCustomProduct ?? "",
+                        GoogleShoppingCustomLabel0 = product.GoogleShoppingCustomLabel0 ?? "",
+                        GoogleShoppingCustomLabel1 = product.GoogleShoppingCustomLabel1 ?? "",
+                        GoogleShoppingCustomLabel2 = product.GoogleShoppingCustomLabel2 ?? "",
+                        GoogleShoppingCustomLabel3 = product.GoogleShoppingCustomLabel3 ?? "",
+                        GoogleShoppingCustomLabel4 = product.GoogleShoppingCustomLabel4 ?? "",
+                        GoogleCustomProduct = product.GoogleCustomProduct ?? "",
+                        ConstitutiveIngredients = product.ConstitutiveIngredients ?? "",
+                        HoldLevel = product.HoldLevel ?? "",
+                        TargetGender = product.TargetGender ?? "",
                         VariantImage = variant.ImageSrc,
                         variant.WeightUnit,
                         variant.TaxCode,
                         variant.Cost,
+                        IncludedUnitedStates = variant.IncludedUnitedStates,
+                        PriceUnitedStates = variant.PriceUnitedStates,
+                        CompareAtPriceUnitedStates = variant.CompareAtPriceUnitedStates,
+                        IncludedInternational = variant.IncludedInternational,
+                        PriceInternational = variant.PriceInternational,
+                        CompareAtPriceInternational = variant.CompareAtPriceInternational,
                         product.Status
                     });
                     csv.NextRecord();

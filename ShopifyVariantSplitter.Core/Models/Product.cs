@@ -21,6 +21,26 @@ namespace ShopifyVariantSplitter.Core.Models
         public List<Variant> Variants { get; set; } = new List<Variant>();
         public List<Image> Images { get; set; } = new List<Image>();
         public string? Status { get; set; }
+
+        // Missing fields from CSV template
+        public bool GiftCard { get; set; }
+        public string? SeoTitle { get; set; }
+        public string? SeoDescription { get; set; }
+        public string? GoogleShoppingCategory { get; set; }
+        public string? GoogleShoppingGender { get; set; }
+        public string? GoogleShoppingAgeGroup { get; set; }
+        public string? GoogleShoppingMpn { get; set; }
+        public string? GoogleShoppingCondition { get; set; }
+        public string? GoogleShoppingCustomProduct { get; set; }
+        public string? GoogleShoppingCustomLabel0 { get; set; }
+        public string? GoogleShoppingCustomLabel1 { get; set; }
+        public string? GoogleShoppingCustomLabel2 { get; set; }
+        public string? GoogleShoppingCustomLabel3 { get; set; }
+        public string? GoogleShoppingCustomLabel4 { get; set; }
+        public string? GoogleCustomProduct { get; set; }
+        public string? ConstitutiveIngredients { get; set; }
+        public string? HoldLevel { get; set; }
+        public string? TargetGender { get; set; }
     }
 
     public class Variant
@@ -43,6 +63,14 @@ namespace ShopifyVariantSplitter.Core.Models
         public string? WeightUnit { get; set; }
         public string? TaxCode { get; set; }
         public decimal Cost { get; set; }
+
+        // Missing fields from CSV template
+        public bool IncludedUnitedStates { get; set; }
+        public decimal PriceUnitedStates { get; set; }
+        public decimal CompareAtPriceUnitedStates { get; set; }
+        public bool IncludedInternational { get; set; }
+        public decimal PriceInternational { get; set; }
+        public decimal CompareAtPriceInternational { get; set; }
     }
 
     public class Image
